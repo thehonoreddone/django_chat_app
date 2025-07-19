@@ -21,6 +21,9 @@
               <img src="https://bootdey.com/img/Content/avatar/avatar1.png">
             </div>
           </div>
+           <div class="col-sm-6 col-xs-6 heading-name">
+               <span class="name-meta">{{ request.user.username }}</span>
+            </div>
           <div class="col-sm-1 col-xs-1  heading-dot  pull-right">
             <i class="fa fa-ellipsis-v fa-2x  pull-right" aria-hidden="true"></i>
           </div>
@@ -316,7 +319,7 @@
         {% for message in messages %}
         
         {% if message.user == request.user %}
-        <div class="row message-body">
+        <div class="row message-body" data-message-id="{{ message.id }}">
            <div class="col-sm-12 message-main-sender">
              <div class="sender">
                <div class="message-text">
@@ -335,12 +338,16 @@
                </div>
                <span class="message-time pull-right">
                  {{ message.get_short_date }}
+                 <span class="read-receipt">
+                   <span class="tick{% if message.is_read %} read{% endif %}">&#10003;</span>
+                   <span class="tick{% if message.is_read %} read{% endif %}">&#10003;</span>
+                 </span>
                </span>
              </div>
            </div> 
          </div>
           {% else %}
-          <div class="row message-body">
+          <div class="row message-body" data-message-id="{{ message.id }}">
            <div class="col-sm-12 message-main-receiver">
              <div class="receiver">
                <div class="message-text">
@@ -367,6 +374,13 @@
 
         
       </div>
+
+      <!-- Yazıyor animasyonu -->
+<div id="typing-indicator" class="typing-indicator" style="display:none;">
+  <span class="typing-dot"></span>
+  <span class="typing-dot"></span>
+  <span class="typing-dot"></span>
+</div>
 
       <div class="row reply">
         <div class="col-sm-1 col-xs-1 reply-emojis">
