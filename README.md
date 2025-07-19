@@ -44,6 +44,11 @@ Bu proje, Django ve Channels kullanılarak geliştirilmiş gerçek zamanlı bir 
 
 Tarayıcınızda `http://127.0.0.1:8000/` adresine giderek uygulamayı kullanmaya başlayabilirsiniz.
 
+## Kullanım Notu
+
+- Uygulama ana adresi olan `http://127.0.0.1:8000/` açıldığında doğrudan bir arayüz gelmez.
+- Giriş yapmak için tarayıcınızda `http://127.0.0.1:8000/login` adresine gidin.
+- Kayıt olmak için ise `http://127.0.0.1:8000/register` adresini kullanabilirsiniz.
 
 ## Ek Bağımlılıklar ve Servisler
 
