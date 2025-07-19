@@ -15,6 +15,7 @@ class Message(models.Model):
    content=models.TextField(verbose_name=("content"))
    date=models.DateTimeField(auto_now_add=True, verbose_name=("date"))
    type_control=models.CharField(max_length=50,null=True)
+   is_read = models.BooleanField(default=False)  
    
    def get_short_date(self):
        return str(self.date.hour) + ":" + str(self.date.minute)
