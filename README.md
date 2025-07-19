@@ -44,11 +44,6 @@ Bu proje, Django ve Channels kullanılarak geliştirilmiş gerçek zamanlı bir 
 
 Tarayıcınızda `http://127.0.0.1:8000/` adresine giderek uygulamayı kullanmaya başlayabilirsiniz.
 
-## Katkı
-Katkıda bulunmak için lütfen bir pull request gönderin.
-
-## Lisans
-Bu proje MIT lisansı ile lisanslanmıştır. 
 
 ## Ek Bağımlılıklar ve Servisler
 
