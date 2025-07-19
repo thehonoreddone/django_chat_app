@@ -4,6 +4,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.models import User
 from .models import *
 from django.contrib.auth.decorators import login_required
+from django.contrib import messages
 
 @login_required(login_url='login')
 def index(request):
@@ -57,3 +58,20 @@ def Login(request):
             
             
     return render(request, "chat/login.html")
+
+from django.contrib import messages
+
+def Register(request):
+    if request.method == "POST":
+        username = request.POST.get("username")
+        password = request.POST.get("password")
+
+        if User.objects.filter(username=username).exists():
+            messages.error(request, "Bu kullanıcı adı zaten alınmış.")
+            return redirect("Register")
+
+        user = User.objects.create_user(username=username, password=password)
+        login(request, user)
+        return redirect("index")
+
+    return render(request, "chat/register.html")
